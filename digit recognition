@@ -1,0 +1,16 @@
+from keras.datasets import mnist
+(xtrain,ytrain),(xtest,ytest)=mnist.load_data()
+index=0
+# print(ytrain[index])
+import matplotlib.pyplot as plt
+# plt.imshow(xtrain[index],cmap='Greys')
+# ytrain[index]
+# xtrain[index].shape
+from keras.models import Sequential
+from keras.layers import Dense,Flatten
+model=Sequential()
+model.add(Flatten(input_shape=(28,28)))
+model.add(Dense(28,activation='relu'))
+model.add(Dense(10,activation="softmax"))
+model.compile(optimizer="adam",loss="sparse_categorical_crossentropy",metrics=['accuracy'])
+# model.fit(xtrain,ytrain,epochs=100)
